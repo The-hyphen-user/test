@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+
+.header {
+  width: 90%;
+  background-color: #4f8896;
+  height: 10vmin;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5%;
+  padding-right: 5%;
+
+}
+
+.drop-down {
+
+}
+
+.title {
+
+}
+
+.log-in {
+
+}
+
+
