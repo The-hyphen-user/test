@@ -23,12 +23,42 @@ const Article = () => {
 
     //axios get from /api/article/<article title>
 
+    useEffect( () => {
+        updateArticle()
+        //console.log(titles)
+        })
+
+        const updateArticle = () => {
+            api.get(`/${title}`).then(res => {
+                api.get(`/${title}`)
+                    .then(res => {
+                        //setTitles(res.data)
+                        console.log("data from backend: ", res.data)
+                        //const t = res.data
+                        setAuthor(res.data[0].author)
+                        setText(res.data[0].text)
+                        setTitleText(res.data[0].title)
+    
+                    })
+    
+            })
+    
+        }
+
 
 
     return (
         <div>
-        <h3>article</h3>
-        <p>URL = {title}</p>
+            <p>
+                article about {titleText}
+            </p>
+            <p>author:
+            {author}
+            </p>
+            <p>
+                text:
+                {text}
+            </p>
         </div>
     )
 }
@@ -40,5 +70,19 @@ export default Article
 {title}
 
             <p>{title}</p>
+
+
+
+
+
+
+
+        <div>
+        <h3>article</h3>
+        <p>URL = {title}</p>
+        </div>
+
+
+
 
 */
