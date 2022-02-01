@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 
 const category = require('./routes/category')
 const article = require('./routes/articles')
+const categoryList = require('./routes/categoryList')
 
 const app = express();
 app.use(cors())
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 //Routes
 app.use('/api/category', category)
 app.use('/api/article', article)
+app.use('/api/categorys', categoryList)
 
 
 

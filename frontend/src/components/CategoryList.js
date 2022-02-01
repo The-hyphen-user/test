@@ -6,61 +6,91 @@ import { data } from "../data/data.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ArticleList from "./ArticleList.js";
 
+
+import axios from "axios";
+const api = axios.create({
+  baseURL: `http://localhost:5000/api/categorys/`//api/category/
+})
+
 const CategoryList = () => {
-  //const [categorys, setData] = useState(data);
-  const categorys = data
+  const [categorys, setCategorys] = useState(data);
+  //const categorys = data
   useEffect(() => {
-    //not needed while categorys are static
-    console.log(categorys);
-  });
+    console.log('first load cats: ' + categorys);
+    getCategorys()
+  }, []);
 
-  const options = [
-    'one', 'two', 'three'
-  ];
-  const defaultOption = options[0];
 
-  function goTo(category) {
-    console.log('banana')
-    navigate(category)
+
+
+  const getCategorys = () => {
+    api.get('/default')
+      //.then(console.log("after get CL"))
+      .then(res => {
+        //console.log(res.data[0].list)
+        setCategorys(res.data[0].list)
+
+        setCategorys(categorys => ["home", ...categorys])
+        //const ace = res.data[0].list;
+        //console.log("ace: ")
+        //console.log(ace)
+      })
+      .then(console.log('forth load cats: ' + categorys))
+  }
+
+  const getCategorys2 = () => {
+    setCategorys(["1", "ccp", "3"])
+
+  }
+
+  const postCategory = () => {
+
   }
 
 
+
+
+
+
+
+  function goTo(category) {
+    //console.log('banana')
+    navigate(category)
+  }
   let navigate = useNavigate();
-
-
   return (
-  <div>
-    <Navbar bg="info" expand="lg" >
-      <Container>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Nav>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            {categorys.map((category) => {
-              return (
-                <div>
-                  <NavDropdown.Item href='#' onClick={() => goTo(category)}>
-                    {" "}
-                    {category}
-                  </NavDropdown.Item>
-                </div>
-              );
-            })}
-          </NavDropdown>
-        </Nav>
-      </Container>
-    </Navbar>
     <div>
-    <Routes>
-      {
-        categorys.map((category) => {
-          return(
-              <Route path={category} element={<ArticleList />}/>
-          )
-        })
-      }
-    </Routes>
+      <Navbar bg="info" expand="lg" >
+        <Container>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Nav>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              {categorys.map((category) => {
+                return (
+                  <div>
+                    <NavDropdown.Item href='#' onClick={() => goTo(category)}>
+                      {" "}
+                      {category}
+                    </NavDropdown.Item>
+                  </div>
+                );
+              })}
+            </NavDropdown>
+          </Nav>
+        </Container>
+      </Navbar>
+      <div>
+        <Routes>
+          {
+            categorys.map((category) => {
+              return (
+                <Route path={category} element={<ArticleList />} />
+              )
+            })
+          }
+        </Routes>
+      </div>
     </div>
-  </div>
   );
 };
 

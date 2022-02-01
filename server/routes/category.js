@@ -18,10 +18,11 @@ router.get('/', (req, res) => {
 });
 */
 
-router.get('/:category', (req, res) => {//just returns titles
-    console.log(req.params.category)
+router.get('/:category', (req, res) => {//just returns titles from category
     Article.find({category: req.params.category}, {category:0,references:0, text:0, author:0})
     .then(articles => res.json(articles))
 })
 
 module.exports =  router;
+
+//articles

@@ -16,11 +16,6 @@ const Article = () => {
     const [id, setID] = useState('');
 
     const {title} = useParams();
-
-    useEffect(() => {
-        console.log("title changed to "+ title)
-    }, [title])
-
     //axios get from /api/article/<article title>
 
     useEffect( () => {
@@ -33,7 +28,7 @@ const Article = () => {
                 api.get(`/${title}`)
                     .then(res => {
                         //setTitles(res.data)
-                        console.log("data from backend: ", res.data)
+                        //console.log("data from backend: ", res.data)
                         //const t = res.data
                         setAuthor(res.data[0].author)
                         setText(res.data[0].text)

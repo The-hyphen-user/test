@@ -25,37 +25,23 @@ const ArticleList = ({ category }) => {
 ///*
   useEffect(() => {
     getList();
-    //updateTitleList()
   },[category])
 //*/
 
 
 const getList = () => {
-  console.log("getlist" + category)
+  //console.log("getlist" + category)
   api.get('/' + category)
-  .then(console.log("after get" ))
+  //.then(console.log("after get" ))
         .then(res => {
-          console.log("after get2" )
+          //console.log("after get2" )
             setTitles(res.data)
-            console.log("data from backend: ", res.data)
+            //console.log("data from backend: ", res.data)
             //const t = res.data
         })
 }
 
 
-
-const updateTitleList = () => {
-  api.get('/').then(res => {
-      api.get('/')
-          .then(res => {
-              //setTitles(res.data)
-              console.log(res.data)
-              //const t = res.data
-          })
-
-  })
-
-}
 
   return (
     <div>
