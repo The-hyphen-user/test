@@ -12,8 +12,30 @@ import { Routes, Route, Router } from "react-router-dom";
 import ArticleList from './components/ArticleList';
 import Article from './components/Article';
 
+
+
+
+import axios from "axios";
+const api = axios.create({
+  baseURL: `http://localhost:5000/api/categorys/`//api/category/
+})
+
 function App() {
-  const [categorys, setData] = useState(data);
+  const [categorys, setCategorys] = useState(data);
+
+
+  useEffect(() => {
+    getCategorys()
+  }, [])
+
+  const getCategorys = () => {
+    api.get('/default')
+      .then(res => {
+        setCategorys(res.data[0].list)
+        setCategorys(categorys)
+      })
+      .then(console.log('appjs cats: ' + categorys))
+  }
 
   return (
     <div>
@@ -24,7 +46,7 @@ function App() {
       {
         categorys.map((category) => {
           return (
-      <Route exact path={'/'+ category} element={<ArticleList category={category}/>}/>
+      <Route path={'/'+ category} element={<ArticleList category={category}/>}/>
           )
       })
       }

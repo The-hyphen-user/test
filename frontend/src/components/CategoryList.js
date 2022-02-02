@@ -38,19 +38,6 @@ const CategoryList = () => {
       .then(console.log('forth load cats: ' + categorys))
   }
 
-  const getCategorys2 = () => {
-    setCategorys(["1", "ccp", "3"])
-
-  }
-
-  const postCategory = () => {
-
-  }
-
-
-
-
-
 
 
   function goTo(category) {

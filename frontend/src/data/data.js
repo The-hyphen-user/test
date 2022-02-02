@@ -3,5 +3,7 @@ export const data = [
     "Battle-Reports",
     "Category-3",
     "Category-4",
-    "home"
+    "home",
+    "game updates",
+    "fingerguns"
 ]
