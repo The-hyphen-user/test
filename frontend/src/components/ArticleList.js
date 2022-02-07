@@ -35,7 +35,7 @@ const getList = () => {
   //.then(console.log("after get" ))
         .then(res => {
           //console.log("after get2" )
-            setTitles(res.data.replace('-', ' '))
+            setTitles(res.data)
             //console.log("data from backend: ", res.data)
             //const t = res.data
         })

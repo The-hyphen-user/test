@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from "axios";
 
+import './component.css'
+
 
 const api = axios.create({
     baseURL: `http://localhost:5000/api/article/`//api/article//title
@@ -43,16 +45,17 @@ const Article = () => {
 
 
     return (
-        <div>
-            <p>
+        <div className='article-container'>
+            <p className='article-title'>
                 article about {titleText}
             </p>
-            <p>author:
-            {author}
-            </p>
-            <p>
+            <p className='article-text'>
                 text:
                 {text}
+            </p>
+            <p className='article-author'>
+                author:
+                {author}
             </p>
         </div>
     )
