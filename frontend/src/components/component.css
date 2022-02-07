@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+
+
+
+.article-container{
+border: solid black 2px;
+padding: 2, 2, 2, 2;
+margin: 2, 2, 2, 2;
+}
+
+.article-title{
+    border: solid red 1px;
+}
+
+.article-author{
+    border: solid green 1px;
+}
+
+.article-text{
+    border: solid blue 1px;
+}
