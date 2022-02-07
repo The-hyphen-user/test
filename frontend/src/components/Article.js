@@ -49,12 +49,13 @@ const Article = () => {
             <p className='article-title'>
                 article about {titleText}
             </p>
-            <p className='article-author'>author:
-            {author}
-            </p>
             <p className='article-text'>
                 text:
                 {text}
+            </p>
+            <p className='article-author'>
+                author:
+                {author}
             </p>
         </div>
     )
